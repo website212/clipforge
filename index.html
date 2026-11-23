@@ -2,122 +2,139 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#080b12">
-<title>ClipForge — Video Clipper</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>ClipForge | Video Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
+ *{box-sizing:border-box}
 :root{
- --bg:#080b12;--panel:#111722;--panel2:#161f2d;
- --line:#263244;--text:#f3f6fc;--muted:#91a0b6;
- --accent:#7c5cff;--accent2:#00d4aa;--red:#ff525f;
+ --bg:#080b12;
+ --panel:#101722;
+ --panel2:#151e2b;
+ --border:#263244;
+ --text:#f4f7ff;
+ --muted:#92a1b8;
+ --purple:#815dff;
+ --cyan:#00d5b0;
 }
 body{
  margin:0;background:var(--bg);color:var(--text);
  font-family:Inter,Arial,sans-serif;
- min-height:100vh;
- background-image:radial-gradient(ellipse at 20% 0%,#18213a 0,transparent 40%);
+ background-image:radial-gradient(ellipse at top left,#1b2140 0,transparent 42%);
 }
 button,input,select{font:inherit}
 button{cursor:pointer}
-.app{max-width:1150px;margin:auto;padding:22px}
+.app{max-width:1050px;margin:auto;padding:16px}
 header{
- display:flex;align-items:center;justify-content:space-between;
- gap:12px;padding:8px 0 22px;border-bottom:1px solid var(--line);
+ display:flex;justify-content:space-between;align-items:center;
+ padding:12px 0 20px;border-bottom:1px solid var(--border);
 }
-.brand{display:flex;align-items:center;gap:11px}
+.brand{display:flex;align-items:center;gap:12px}
 .logo{
- width:43px;height:43px;border-radius:13px;
- background:linear-gradient(135deg,#7c5cff,#00d4aa);
- display:grid;place-items:center;font-size:23px;font-weight:900;
- color:white;box-shadow:0 0 25px #7c5cff35;
+ width:45px;height:45px;border-radius:14px;
+ background:linear-gradient(135deg,#815dff,#00d5b0);
+ display:grid;place-items:center;font-size:25px;font-weight:900;
 }
-.brand h1{margin:0;font-size:20px;letter-spacing:-.6px}
-.brand small{color:var(--muted);font-size:11px}
-.status{
- color:#75e7bd;background:#10251f;border:1px solid #1c4939;
- padding:8px 11px;border-radius:20px;font-size:11px
+.brand h1{font-size:20px;margin:0}
+.brand p{font-size:10px;letter-spacing:2px;color:var(--muted);margin:4px 0}
+.badge{
+ border:1px solid #174a3c;background:#10251e;color:#66e8bb;
+ padding:9px 12px;border-radius:30px;font-size:11px
 }
-.hero{text-align:center;padding:32px 8px 22px}
-.hero h2{font-size:clamp(25px,5vw,38px);margin:0 0 10px}
-.hero p{color:var(--muted);font-size:14px;line-height:1.7;margin:auto;max-width:650px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hero{text-align:center;padding:30px 8px}
+.hero h2{font-size:clamp(26px,5vw,38px);margin:0 0 12px}
+.hero span{color:#a18bff}
+.hero p{color:var(--muted);font-size:14px;line-height:1.7}
 .card{
- background:var(--panel);border:1px solid var(--line);
- border-radius:18px;padding:19px;margin-bottom:16px;
+ background:var(--panel);border:1px solid var(--border);
+ border-radius:18px;padding:17px;margin-bottom:15px;
 }
-.card-title{font-size:16px;font-weight:700;margin-bottom:5px}
-.card-sub{color:var(--muted);font-size:12px;line-height:1.6;margin-bottom:15px}
-.label{display:block;font-size:12px;color:var(--muted);margin:12px 0 7px}
-.input{
- width:100%;background:#0b111b;color:white;border:1px solid var(--line);
- padding:12px;border-radius:10px;outline:none;
-}
-.input:focus{border-color:var(--accent)}
+.title{font-size:17px;font-weight:750;margin-bottom:6px}
+.sub{font-size:12px;color:var(--muted);line-height:1.65}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
 .btn{
- border:0;border-radius:10px;padding:12px 15px;
- font-weight:700;color:white;background:var(--accent);
- transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:7px
+ display:flex;justify-content:center;align-items:center;gap:8px;
+ width:100%;border:0;border-radius:11px;padding:13px;
+ font-weight:700;background:var(--purple);color:white;
 }
-.btn:hover{filter:brightness(1.15);transform:translateY(-1px)}
-.btn.secondary{background:#202b3c;border:1px solid var(--line)}
-.btn.green{background:linear-gradient(135deg,#00b88c,#00d4aa);color:#06130f}
-.btn.red{background:#3a2028;color:#ff8992}
-.btn.full{width:100%}
-.upload{
- border:1px dashed #46556b;border-radius:14px;padding:25px 15px;
- text-align:center;background:#0c121c;cursor:pointer;
+.btn.secondary{background:#202c3d;border:1px solid var(--border)}
+.btn.green{background:linear-gradient(120deg,#00bd96,#00dfb5);color:#06221b}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.label{font-size:12px;color:var(--muted);display:block;margin:12px 0 7px}
+.input{
+ width:100%;border:1px solid var(--border);background:#0a111b;
+ color:white;padding:13px;border-radius:11px;outline:none;
 }
-.upload:hover{border-color:var(--accent);background:#121727}
-.upload-icon{font-size:35px;margin-bottom:10px}
-.upload strong{display:block;margin-bottom:7px}
-.upload p{font-size:12px;color:var(--muted);line-height:1.6}
+.input:focus{border-color:var(--purple)}
+/* Clean upload design */
+.upload-area{
+ border:1.5px dashed #45536a;background:#0b121d;
+ border-radius:15px;padding:18px;text-align:center;
+}
+.upload-area:active{border-color:var(--purple)}
+.upload-symbol{
+ width:54px;height:54px;border-radius:16px;margin:0 auto 10px;
+ display:grid;place-items:center;font-size:26px;
+ background:#1c2540;
+}
+.upload-area h3{font-size:15px;margin:5px 0}
+.upload-area p{font-size:12px;color:var(--muted);line-height:1.6;margin:6px 0 13px}
 #fileInput{display:none}
-.video-wrap{
- background:#030508;border-radius:13px;overflow:hidden;
- min-height:180px;display:grid;place-items:center;
+.file-info{
+ display:none;background:#14251f;border:1px solid #245542;
+ border-radius:10px;padding:12px;margin-top:10px;
+ font-size:12px;line-height:1.6;color:#a4e7c9;
 }
-video{max-width:100%;max-height:460px;width:100%;display:none}
-.placeholder{color:#56657a;text-align:center;padding:35px;font-size:13px}
-#ytFrame{width:100%;aspect-ratio:16/9;border:0;display:none}
-.row{display:flex;gap:10px;align-items:center}
-.row>*{flex:1;min-width:0}
-.clip-box{
- background:#0c121c;border:1px solid var(--line);
- border-radius:13px;padding:14px;margin:10px 0;
+.preview{
+ background:#05070b;border-radius:12px;margin-top:12px;
+ overflow:hidden;display:none;
 }
-.clip-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.clip-number{font-weight:700;color:#b9aaff}
-.time-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-select.input{appearance:auto}
-.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.small{font-size:11px;color:var(--muted);line-height:1.6}
-.divider{height:1px;background:var(--line);margin:15px 0}
-.progress-wrap{height:8px;background:#222c3b;border-radius:10px;overflow:hidden}
-.progress{height:100%;width:0;background:linear-gradient(90deg,#7c5cff,#00d4aa);transition:width .2s}
-#progressText{font-size:12px;color:var(--muted);margin:8px 0}
-.results{display:grid;gap:10px}
-.result{
- border:1px solid var(--line);background:#0c121c;padding:13px;border-radius:12px
+.preview video{width:100%;max-height:360px;display:block}
+.preview-placeholder{
+ background:#0a1019;border:1px solid var(--border);
+ border-radius:12px;padding:24px 10px;text-align:center;
+ color:#69788e;font-size:12px;margin-top:12px;
 }
-.result a{color:#85e8c1;font-weight:700;text-decoration:none}
+#ytFrame{display:none;width:100%;aspect-ratio:16/9;border:0}
 .warning{
- background:#2a2114;border:1px solid #594526;color:#e7c58d;
- padding:12px;border-radius:11px;font-size:12px;line-height:1.7
+ background:#282114;border:1px solid #584522;
+ color:#e3c48b;padding:12px;border-radius:11px;
+ font-size:12px;line-height:1.7;margin-top:12px;
 }
-.footer{text-align:center;color:#58677b;font-size:11px;padding:25px}
-@media(max-width:700px){
- .app{padding:13px}
+.settings{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.divider{height:1px;background:var(--border);margin:16px 0}
+.clip{
+ background:#0b121b;border:1px solid var(--border);
+ border-radius:12px;padding:13px;margin:10px 0;
+}
+.clip-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.clip-name{font-size:13px;font-weight:750;color:#b4a3ff}
+.times{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.small{font-size:11px;color:var(--muted);line-height:1.6}
+.progress-bg{height:8px;border-radius:20px;background:#263244;overflow:hidden}
+.progress-bar{
+ width:0;height:100%;
+ background:linear-gradient(90deg,#815dff,#00d5b0);
+ transition:width .25s
+}
+.results{display:grid;gap:10px}
+.result{border:1px solid var(--border);background:#0b121b;padding:13px;border-radius:12px}
+.result a{color:#72e8be;text-decoration:none;font-weight:700}
+.footer{text-align:center;color:#65748a;font-size:11px;line-height:1.7;padding:22px}
+@media(max-width:650px){
+ .app{padding:12px}
  .grid{grid-template-columns:1fr}
- .card{padding:15px}
- header{align-items:flex-start}
- .hero{padding-top:25px}
+ .card{padding:14px}
+ .hero{padding:23px 5px}
+ .hero p{font-size:13px}
+ .settings{gap:9px}
+ header{gap:8px}
+ .badge{font-size:9px;padding:8px}
  .brand h1{font-size:18px}
- .settings-grid{grid-template-columns:1fr 1fr}
+}
+</style>
 </style>
 </head>
 <body>
@@ -128,109 +145,115 @@ select.input{appearance:auto}
   <div class="logo">C</div>
   <div>
    <h1>ClipForge</h1>
-   <small>VIDEO CLIP STUDIO</small>
+   <p>VIDEO CLIP STUDIO</p>
   </div>
  </div>
- <div class="status">● FREE • NO LOGIN</div>
+ <div class="badge">● FREE • NO LOGIN</div>
 </header>
 
 <section class="hero">
- <h2>Turn Videos Into <span style="color:#9c88ff">Clips</span></h2>
- <p>Upload your video, split it into multiple clips,
- customize the format and export your clips.</p>
+ <h2>Turn Videos Into <span>Clips</span></h2>
+ <p>Upload a video, create multiple clips, customize the format
+ and export them directly to your device.</p>
 </section>
 
 <div class="grid">
 
-<!-- VIDEO UPLOAD -->
+<!-- UPLOAD -->
 <section class="card">
- <div class="card-title">📁 Upload Your Video</div>
- <div class="card-sub">Choose a video saved on your device.</div>
+ <div class="title">📁 Your Video</div>
+ <div class="sub">Select a video saved on your phone.</div>
 
- <label class="upload" for="fileInput">
-  <div class="upload-icon">🎬</div>
-  <strong>Tap to select a video</strong>
-  <p>MP4, MOV, WebM and supported formats<br>
-  Recommended: smaller files for mobile</p>
+ <label class="upload-area" for="fileInput"
+ style="display:block;margin-top:14px;cursor:pointer">
+  <div class="upload-symbol">⬆️</div>
+  <h3>Select Video</h3>
+  <p>Tap below to browse your gallery or files</p>
+  <span class="btn secondary" style="max-width:230px;margin:auto">
+   Choose video
+  </span>
+  <p>MP4 • MOV • WebM • Supported formats</p>
  </label>
 
- <input id="fileInput" type="file" accept="video/*">
+ <input type="file" id="fileInput" accept="video/*">
 
- <div id="fileInfo" class="small" style="margin-top:10px"></div>
+ <div class="file-info" id="fileInfo"></div>
 
- <div class="video-wrap" style="margin-top:15px">
+ <div class="preview" id="videoPreview">
   <video id="video" controls playsinline></video>
-  <div class="placeholder" id="videoPlaceholder">
-   Your video preview will appear here
-  </div>
+ </div>
+
+ <div class="preview-placeholder" id="videoPlaceholder">
+  Your selected video's preview will appear here.
  </div>
 </section>
 
 <!-- YOUTUBE -->
 <section class="card">
- <div class="card-title">▶️ YouTube Link</div>
- <div class="card-sub">Paste a video URL to preview it.</div>
+ <div class="title">▶️ YouTube Preview</div>
+ <div class="sub">Paste a video link to preview.</div>
 
- <label class="label">YouTube video URL</label>
+ <label class="label">Video URL</label>
  <input class="input" id="ytInput"
- placeholder="https://www.youtube.com/watch?v=...">
+ placeholder="Paste YouTube link here">
 
- <button class="btn full" style="margin-top:10px"
+ <button class="btn" style="margin-top:10px"
  onclick="loadYouTube()">▶ Load Preview</button>
 
- <div class="video-wrap" style="margin-top:15px">
-  <iframe id="ytFrame"
-   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-   allowfullscreen></iframe>
-  <div class="placeholder" id="ytPlaceholder">
-   YouTube preview will appear here
-  </div>
+ <div class="preview" id="ytPreview">
+  <iframe id="ytFrame" allowfullscreen
+   allow="accelerometer;autoplay;encrypted-media;picture-in-picture"
+   referrerpolicy="strict-origin-when-cross-origin"></iframe>
  </div>
 
- <div class="warning" style="margin-top:12px">
-  YouTube links are for preview only in this version.
-  Clipping/export requires a video file you have permission
-  to process, uploaded from your device.
+ <div class="preview-placeholder" id="ytPlaceholder">
+  YouTube preview will appear here.
+ </div>
+
+ <div class="warning">
+  YouTube links are preview-only. To export clips,
+  upload a video file that you are authorized to process.
  </div>
 </section>
 
 </div>
 
-<!-- CLIP SETTINGS -->
+<!-- SETTINGS -->
 <section class="card">
- <div class="card-title">✂️ Clip Settings</div>
- <div class="card-sub">
-  Choose how many clips to create from your uploaded video.
- </div>
+ <div class="title">✂️ Clip Settings</div>
+ <div class="sub">Choose the number of clips and export format.</div>
 
- <div class="settings-grid">
+ <div class="settings">
   <div>
    <label class="label">Number of clips</label>
-   <select id="clipCount" class="input">
+   <select class="input" id="clipCount">
     <option value="2">2 Clips</option>
     <option value="3" selected>3 Clips</option>
     <option value="4">4 Clips</option>
    </select>
   </div>
+
   <div>
-   <label class="label">Video format</label>
-   <select id="aspect" class="input">
+   <label class="label">Aspect ratio</label>
+   <select class="input" id="aspect">
     <option value="original">Original</option>
-    <option value="9:16">Vertical 9:16 (Reels)</option>
-    <option value="1:1">Square 1:1</option>
-    <option value="16:9">Landscape 16:9</option>
+    <option value="9:16">9:16 Vertical</option>
+    <option value="1:1">1:1 Square</option>
+    <option value="16:9">16:9 Landscape</option>
    </select>
   </div>
+
   <div>
-   <label class="label">Fit mode</label>
-   <select id="fitMode" class="input">
-    <option value="crop">Fill / Crop</option>
-    <option value="fit">Fit / No Crop</option>
+   <label class="label">Crop mode</label>
+   <select class="input" id="fitMode">
+    <option value="crop">Fill / Center crop</option>
+    <option value="fit">Fit / No crop</option>
    </select>
   </div>
+
   <div>
-   <label class="label">Export quality</label>
-   <select id="quality" class="input">
+   <label class="label">Quality</label>
+   <select class="input" id="quality">
     <option value="fast">Fast</option>
     <option value="balanced" selected>Balanced</option>
     <option value="high">High quality</option>
@@ -240,48 +263,49 @@ select.input{appearance:auto}
 
  <div class="divider"></div>
 
- <div class="card-title">⏱️ Clip Timeline</div>
- <div class="small">
-  By default, the video is divided into equal sections.
-  You can edit each clip's start and end time in seconds.
- </div>
+ <div class="title">⏱️ Clip Timeline</div>
+ <p class="sub">
+  Default clips are divided equally. Change start/end times
+  to customize each section.
+ </p>
 
  <div id="clipEditors"></div>
 
- <button class="btn secondary full" id="splitBtn" style="margin-top:8px">
-  🔄 Reset clips to equal sections
+ <button class="btn secondary" id="splitBtn">
+  ↻ Reset to equal sections
  </button>
 
  <div class="divider"></div>
 
- <button class="btn green full" id="exportBtn" disabled>
+ <button class="btn green" id="exportBtn" disabled>
   ✨ Generate Clips
  </button>
 
- <div id="progressText">Upload a video to get started.</div>
- <div class="progress-wrap">
-  <div class="progress" id="progress"></div>
+ <p class="small" id="progressText">Choose a video to begin.</p>
+
+ <div class="progress-bg">
+  <div class="progress-bar" id="progress"></div>
  </div>
 </section>
 
-<!-- RESULTS -->
+<!-- DOWNLOADS -->
 <section class="card">
- <div class="card-title">📥 Your Exported Clips</div>
- <div class="card-sub">Download each clip after processing.</div>
+ <div class="title">📥 Exported Clips</div>
+ <p class="sub">Your finished videos will appear here.</p>
  <div class="results" id="results">
-  <div class="placeholder">Your clips will appear here.</div>
+  <div class="preview-placeholder">No clips created yet.</div>
  </div>
 </section>
 
 <div class="footer">
- ClipForge • Free video clipping studio • No watermark
- <br>Processing happens in your browser. Files are not uploaded to our server.
+ ClipForge • Free video clip studio • No watermark
+ <br>Processing is performed locally in your browser.
 </div>
 
 </div>
 
 <script type="module">
-import { FFmpeg } from
+ import { FFmpeg } from
  "https://esm.sh/@ffmpeg/ffmpeg@0.12.10";
 
 import { toBlobURL } from
@@ -301,31 +325,30 @@ let selectedFile = null;
 let videoDuration = 0;
 let ffmpeg = null;
 let ffmpegLoaded = false;
-let isProcessing = false;
-let videoObjectURL = null;
-let outputURLs = [];
+let processing = false;
+let videoURL = null;
+let downloadURLs = [];
 
-function setProgress(value, text) {
+function progress(value, message) {
  progressBar.style.width =
   Math.max(0, Math.min(100, value)) + "%";
- progressText.textContent = text;
+ progressText.textContent = message;
 }
 
-function clearResults() {
- outputURLs.forEach(url => URL.revokeObjectURL(url));
- outputURLs = [];
+function clearDownloads() {
+ downloadURLs.forEach(url => URL.revokeObjectURL(url));
+ downloadURLs = [];
  results.innerHTML =
-  '<div class="placeholder">Your clips will appear here.</div>';
+  '<div class="preview-placeholder">No clips created yet.</div>';
 }
 
-function formatTime(seconds) {
- if (!Number.isFinite(seconds)) return "0";
- return seconds.toFixed(2);
+function seconds(value) {
+ return Number(value).toFixed(2);
 }
 
-// VIDEO UPLOAD
+// UPLOAD
 fileInput.addEventListener("change", () => {
- const file = fileInput.files?.[0];
+ const file = fileInput.files[0];
  if (!file) return;
 
  if (!file.type.startsWith("video/")) {
@@ -337,45 +360,45 @@ fileInput.addEventListener("change", () => {
  selectedFile = file;
  videoDuration = 0;
 
- if (videoObjectURL) URL.revokeObjectURL(videoObjectURL);
+ if (videoURL) URL.revokeObjectURL(videoURL);
+ videoURL = URL.createObjectURL(file);
 
- videoObjectURL = URL.createObjectURL(file);
- video.src = videoObjectURL;
- video.style.display = "block";
+ video.src = videoURL;
+ $("videoPreview").style.display = "block";
  $("videoPlaceholder").style.display = "none";
 
+ $("fileInfo").style.display = "block";
  $("fileInfo").textContent =
-  file.name + " • " + (file.size / 1024 / 1024).toFixed(1) + " MB";
+  "📄 " + file.name +
+  "\n📦 " + (file.size / 1048576).toFixed(2) + " MB";
 
- $("ytFrame").style.display = "none";
+ $("ytPreview").style.display = "none";
  $("ytPlaceholder").style.display = "block";
  $("ytFrame").src = "";
 
- clearResults();
-
+ clearDownloads();
  exportBtn.disabled = true;
- setProgress(0, "Loading video information...");
+ progress(0, "Reading video...");
 });
 
 video.addEventListener("loadedmetadata", () => {
  videoDuration = video.duration;
 
  if (!Number.isFinite(videoDuration) || videoDuration <= 0) {
-  setProgress(0, "Could not read video duration.");
+  progress(0, "Could not read the video's duration.");
   return;
  }
 
- buildClipEditors();
+ makeClips(true);
  exportBtn.disabled = false;
 
- setProgress(
-  0,
-  "Video ready • Duration: " + formatTime(videoDuration) + " seconds"
+ progress(0,
+  "Video ready • " + seconds(videoDuration) + " seconds"
  );
 });
 
 video.addEventListener("error", () => {
- setProgress(0, "Video preview failed. Try another supported video.");
+ progress(0, "Preview failed. Try another video format.");
 });
 
 // YOUTUBE PREVIEW
@@ -383,179 +406,175 @@ window.loadYouTube = function() {
  const url = $("ytInput").value.trim();
 
  const match = url.match(
-  /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+  /(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
  );
 
  if (!match) {
-  alert("Please enter a valid YouTube video link.");
+  alert("Please paste a valid YouTube URL.");
   return;
  }
 
- const id = match[1];
-
  $("ytFrame").src =
   "https://www.youtube-nocookie.com/embed/" +
-  id + "?rel=0";
+  match[1] + "?rel=0";
 
- $("ytFrame").style.display = "block";
+ $("ytPreview").style.display = "block";
  $("ytPlaceholder").style.display = "none";
 };
 
-// CLIP EDITORS
-function buildClipEditors(equalSplit = true) {
+// CLIP TIMELINE
+function makeClips(equal = true) {
  if (!videoDuration) return;
 
  const count = Number($("clipCount").value);
  clipEditors.innerHTML = "";
 
  for (let i = 0; i < count; i++) {
-  const start = equalSplit
-   ? videoDuration * i / count
-   : 0;
-
-  const end = equalSplit
-   ? videoDuration * (i + 1) / count
-   : videoDuration;
+  const start = equal ? videoDuration * i / count : 0;
+  const end = equal ? videoDuration * (i + 1) / count : videoDuration;
 
   const box = document.createElement("div");
-  box.className = "clip-box";
+  box.className = "clip";
 
   box.innerHTML = `
-   <div class="clip-head">
-    <span class="clip-number">CLIP ${i + 1}</span>
-    <button type="button" class="btn secondary"
-     data-preview="${i}" style="padding:7px 10px;font-size:11px">
+   <div class="clip-top">
+    <span class="clip-name">CLIP ${i + 1}</span>
+    <button class="btn secondary previewClip"
+     data-index="${i}" style="width:auto;padding:8px 10px;font-size:11px">
      ▶ Preview
     </button>
    </div>
 
-   <div class="time-grid">
+   <div class="times">
     <div>
-     <label class="label">Start (seconds)</label>
-     <input class="input clip-start" type="number"
-      min="0" step="0.1" value="${formatTime(start)}">
+     <label class="label">Start (sec)</label>
+     <input type="number" class="input start"
+      min="0" max="${videoDuration}" step="0.1"
+      value="${seconds(start)}">
     </div>
     <div>
-     <label class="label">End (seconds)</label>
-     <input class="input clip-end" type="number"
-      min="0" step="0.1" value="${formatTime(end)}">
+     <label class="label">End (sec)</label>
+     <input type="number" class="input end"
+      min="0" max="${videoDuration}" step="0.1"
+      value="${seconds(end)}">
     </div>
    </div>
-
-   <div class="small" style="margin-top:8px">
-    Max video duration: ${formatTime(videoDuration)} sec
-   </div>
+   <p class="small">Video duration: ${seconds(videoDuration)} sec</p>
   `;
 
   clipEditors.appendChild(box);
  }
 
- clipEditors.querySelectorAll("[data-preview]").forEach(btn => {
-  btn.addEventListener("click", () => {
-   const index = Number(btn.dataset.preview);
-   const startInput =
-    clipEditors.querySelectorAll(".clip-start")[index];
-
-   const start = Number(startInput.value);
+ clipEditors.querySelectorAll(".previewClip").forEach(button => {
+  button.onclick = () => {
+   const index = Number(button.dataset.index);
+   const start = Number(
+    clipEditors.querySelectorAll(".start")[index].value
+   );
 
    if (start >= 0 && start < videoDuration) {
     video.currentTime = start;
     video.play().catch(() => {});
    }
-  });
+  };
  });
 }
 
-$("clipCount").addEventListener("change", () => {
- buildClipEditors(true);
-});
+$("clipCount").addEventListener("change", () => makeClips(true));
 
 $("splitBtn").addEventListener("click", () => {
- buildClipEditors(true);
- setProgress(0, "Clips reset to equal sections.");
+ makeClips(true);
+ progress(0, "Clips reset to equal sections.");
 });
 
-// LOAD FFMPEG
-async function loadFFmpeg() {
+// FFmpeg loading — CROSS-ORIGIN WORKER FIX
+async function loadEngine() {
  if (ffmpegLoaded) return;
 
- setProgress(0, "Loading video engine... Please wait.");
+ progress(3, "Preparing video engine...");
 
  ffmpeg = new FFmpeg();
 
- ffmpeg.on("progress", ({ progress }) => {
-  if (!isProcessing) return;
-
-  const p = Math.max(0, Math.min(1, progress || 0));
-
-  setProgress(
-   p * 100,
-   "Processing video... " + Math.round(p * 100) + "%"
-  );
- });
-
  ffmpeg.on("log", ({ message }) => {
-  // FFmpeg log messages are kept out of the UI.
+  console.log("[FFmpeg]", message);
  });
 
- const baseURL =
-  "https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd";
+ ffmpeg.on("progress", ({ progress: p }) => {
+  if (processing && Number.isFinite(p)) {
+   console.log("Engine progress:", p);
+  }
+ });
+
+ const coreBase =
+  "https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.6/dist/umd";
+
+ const packageBase =
+  "https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/umd";
+
+ progress(5, "Loading processing engine...");
+
+ // Convert worker script to Blob URL, avoiding cross-origin Worker error
+ const classWorkerURL = await toBlobURL(
+  packageBase + "/worker.js",
+  "text/javascript"
+ );
+
+ const coreURL = await toBlobURL(
+  coreBase + "/ffmpeg-core.js",
+  "text/javascript"
+ );
+
+ const wasmURL = await toBlobURL(
+  coreBase + "/ffmpeg-core.wasm",
+  "application/wasm"
+ );
+
+ progress(10, "Starting FFmpeg...");
 
  await ffmpeg.load({
-  coreURL: await toBlobURL(
-   baseURL + "/ffmpeg-core.js",
-   "text/javascript"
-  ),
-  wasmURL: await toBlobURL(
-   baseURL + "/ffmpeg-core.wasm",
-   "application/wasm"
-  )
+  classWorkerURL,
+  coreURL,
+  wasmURL
  });
 
  ffmpegLoaded = true;
 }
 
-// BUILD VIDEO FILTER
-function getVideoFilter() {
- const aspect = $("aspect").value;
+// VIDEO FILTER
+function videoFilter() {
+ const ratio = $("aspect").value;
  const fit = $("fitMode").value;
 
- if (aspect === "original") return null;
+ if (ratio === "original") return "";
 
- let width, height;
+ let w, h;
 
- if (aspect === "9:16") {
-  width = 720;
-  height = 1280;
- } else if (aspect === "1:1") {
-  width = 720;
-  height = 720;
+ if (ratio === "9:16") {
+  w = 720; h = 1280;
+ } else if (ratio === "1:1") {
+  w = 720; h = 720;
  } else {
-  width = 1280;
-  height = 720;
+  w = 1280; h = 720;
  }
 
  if (fit === "fit") {
-  return `scale=${width}:${height}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2`;
+  return `scale=${w}:${h}:force_original_aspect_ratio=decrease,pad=${w}:${h}:(ow-iw)/2:(oh-ih)/2`;
  }
 
- return `scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}`;
+ return `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h}`;
 }
 
-// EXPORT CLIPS
+// EXPORT
 exportBtn.addEventListener("click", async () => {
  if (!selectedFile || !videoDuration) {
-  alert("First upload a video from your device.");
+  alert("Please upload a video first.");
   return;
  }
 
- if (isProcessing) return;
+ if (processing) return;
 
- const starts =
-  [...clipEditors.querySelectorAll(".clip-start")];
-
- const ends =
-  [...clipEditors.querySelectorAll(".clip-end")];
+ const starts = [...clipEditors.querySelectorAll(".start")];
+ const ends = [...clipEditors.querySelectorAll(".end")];
 
  const clips = starts.map((input, i) => ({
   start: Number(input.value),
@@ -572,63 +591,62 @@ exportBtn.addEventListener("click", async () => {
    c.end > videoDuration ||
    c.end <= c.start
   ) {
-   alert(
-    `Clip ${i + 1} has invalid times. ` +
-    `Start/end must be within the video duration.`
-   );
+   alert("Please check Clip " + (i + 1) + " start/end times.");
    return;
   }
  }
 
- isProcessing = true;
+ processing = true;
  exportBtn.disabled = true;
  $("clipCount").disabled = true;
  $("aspect").disabled = true;
  $("fitMode").disabled = true;
  $("quality").disabled = true;
 
- clearResults();
+ clearDownloads();
 
  try {
-  await loadFFmpeg();
+  await loadEngine();
 
-  setProgress(0, "Preparing your video...");
+  progress(15, "Reading source video...");
 
-  const inputName = "source_video.mp4";
+  const inputName = "clipforge_input.mp4";
+
+  // Remove previous temp input if it exists
+  try {
+   await ffmpeg.deleteFile(inputName);
+  } catch {}
 
   await ffmpeg.writeFile(
    inputName,
    new Uint8Array(await selectedFile.arrayBuffer())
   );
 
-  const filter = getVideoFilter();
+  const filter = videoFilter();
 
   const quality = $("quality").value;
+  const crf = quality === "high" ? "18" :
+             quality === "fast" ? "28" : "23";
 
-  const crf =
-   quality === "high" ? "18" :
-   quality === "fast" ? "28" : "23";
-
-  const preset =
-   quality === "fast" ? "ultrafast" :
-   quality === "high" ? "slow" : "veryfast";
-
-  results.innerHTML = "";
+  const preset = quality === "high" ? "medium" :
+                quality === "fast" ? "ultrafast" : "veryfast";
 
   for (let i = 0; i < clips.length; i++) {
-   const clip = clips[i];
+   const c = clips[i];
+   const duration = c.end - c.start;
+   const output = `clipforge_output_${i}.mp4`;
 
-   setProgress(
-    (i / clips.length) * 100,
+   progress(
+    15 + (i / clips.length) * 80,
     `Creating clip ${i + 1} of ${clips.length}...`
    );
 
-   const outputName = `clip_${i + 1}.mp4`;
-
-   const duration = clip.end - clip.start;
+   try {
+    await ffmpeg.deleteFile(output);
+   } catch {}
 
    const args = [
-    "-ss", String(clip.start),
+    "-ss", String(c.start),
     "-i", inputName,
     "-t", String(duration),
     "-map", "0:v:0",
@@ -639,70 +657,63 @@ exportBtn.addEventListener("click", async () => {
     "-crf", crf
    ];
 
-   if (filter) {
-    args.push("-vf", filter);
-   }
+   if (filter) args.push("-vf", filter);
 
    args.push(
     "-c:a", "aac",
     "-b:a", "128k",
     "-movflags", "+faststart",
-    "-y", outputName
+    "-y", output
    );
 
-   const exitCode = await ffmpeg.exec(args);
+   const code = await ffmpeg.exec(args);
 
-   if (exitCode !== 0) {
-    throw new Error(
-     "FFmpeg failed to create clip " + (i + 1)
-    );
+   if (code !== 0) {
+    throw new Error("Encoding failed on Clip " + (i + 1));
    }
 
-   const data = await ffmpeg.readFile(outputName);
+   const data = await ffmpeg.readFile(output);
 
-   const blob = new Blob([data], {
-    type: "video/mp4"
-   });
-
+   const blob = new Blob([data], { type: "video/mp4" });
    const url = URL.createObjectURL(blob);
-   outputURLs.push(url);
+   downloadURLs.push(url);
 
-   const result = document.createElement("div");
-   result.className = "result";
+   const item = document.createElement("div");
+   item.className = "result";
 
-   result.innerHTML = `
+   item.innerHTML = `
     <strong>🎬 Clip ${i + 1}</strong>
-    <div class="small" style="margin:7px 0">
-     ${formatTime(clip.start)}s → ${formatTime(clip.end)}s
-     • ${formatTime(duration)}s duration
-    </div>
-    <a href="${url}" download="ClipForge_Clip_${i + 1}.mp4">
+    <p class="small">
+     ${seconds(c.start)}s → ${seconds(c.end)}s
+     (${seconds(duration)} sec)
+    </p>
+    <a href="${url}" download="ClipForge_${i + 1}.mp4">
      ⬇ Download Clip ${i + 1}
     </a>
    `;
 
-   results.appendChild(result);
+   results.appendChild(item);
 
-   await ffmpeg.deleteFile(outputName);
+   await ffmpeg.deleteFile(output);
   }
 
   await ffmpeg.deleteFile(inputName);
 
-  setProgress(100, "All clips created successfully! 🎉");
+  progress(100, "Finished! All clips are ready. 🎉");
 
- } catch (error) {
-  console.error(error);
+ } catch (err) {
+  console.error("ClipForge error:", err);
 
-  setProgress(0, "Processing failed.");
+  progress(0, "Processing error.");
 
   alert(
-   "Video processing failed.\n\n" +
-   "Try a smaller video or another format.\n\n" +
-   "Error: " + (error.message || error)
+   "ClipForge could not process this video.\n\n" +
+   (err.message || String(err)) +
+   "\n\nTry a smaller video, or reload the page and try again."
   );
 
  } finally {
-  isProcessing = false;
+  processing = false;
   exportBtn.disabled = !selectedFile;
   $("clipCount").disabled = false;
   $("aspect").disabled = false;
@@ -710,9 +721,6 @@ exportBtn.addEventListener("click", async () => {
   $("quality").disabled = false;
  }
 });
-
 </script>
 </body>
 </html>
-}
-</style>
